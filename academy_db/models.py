@@ -1,6 +1,6 @@
 from datetime import date
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
-from sqlalchemy import ForeignKey
+from sqlalchemy import ForeignKey, String
 
 class Base(DeclarativeBase):
     pass
@@ -10,6 +10,7 @@ class Student(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     name: Mapped[str] = mapped_column(nullable=False)
+    email: Mapped[str] = mapped_column(String, unique=True, nullable=True)
     group_id: Mapped[int] = mapped_column(ForeignKey('groups.id'), nullable=False)
     group: Mapped["Group"] = relationship(back_populates='students')
     grades: Mapped[list["Grade"]] = relationship(back_populates="student")
