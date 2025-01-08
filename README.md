@@ -18,8 +18,10 @@ to start a Docker container:
 ```bash  
 docker run --name some-postgres -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -d postgres  
 ```
+
 Replace `some-postgres` with your container name and `mysecretpassword` with your 
 custom password for connecting to the database.
+
 ---
 ## Technical Task Description
 
